@@ -126,8 +126,7 @@ img {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.03)" d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,186.7C672,192,768,160,864,149.3C960,139,1056,149,1152,170.7C1248,192,1344,224,1392,240L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') no-repeat bottom center;
-  background-size: cover;
+  background: rgba(15, 29, 53, 0.7);
 }
 
 .hero-content {
@@ -189,9 +188,19 @@ img {
 .impact-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 40px 28px;
+  padding: 0;
+  overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.impact-card h3,
+.impact-card p {
+  padding: 0 28px;
+}
+
+.impact-card p {
+  padding-bottom: 28px;
 }
 
 .impact-card:hover {
@@ -199,10 +208,12 @@ img {
   box-shadow: var(--shadow-lg);
 }
 
-.impact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  color: var(--accent);
+.impact-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .impact-card h3 {
@@ -215,6 +226,59 @@ img {
 .impact-card p {
   font-size: 0.95rem;
   color: var(--text-body);
+}
+
+/* ========== GALLERY SECTION ========== */
+.gallery {
+  padding: 80px 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 48px;
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 250px;
+  gap: 16px;
+}
+
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-large {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .gallery-large {
+    grid-column: span 1;
+  }
 }
 
 /* ========== DONATE SECTION ========== */
